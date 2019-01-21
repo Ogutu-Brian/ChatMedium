@@ -42,8 +42,7 @@ class UserCollection:
         self.user_data[user.id] = user
         self.id += 1
 
-    @classmethod
-    def query_by_id(cls, item_id):
+    def query_by_id(self, item_id):
         """Queries a user by the user id"""
         response = None
         for item in self.user_data.values():
