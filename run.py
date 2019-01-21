@@ -1,4 +1,5 @@
 from user.user import User, UserCollection
+from utils import validate_user
 user_collection = UserCollection()
 
 
@@ -20,6 +21,7 @@ def signup(first_name="", last_name="", password="", email=""):
     else:
         user = User(first_name=first_name, last_name=last_name,
                     password=password, email=email)
-        user_collection.add_user(user)
-        response = user
+        if validate_user(user):
+            user_collection.add_user(user)
+            response = user
     return response
