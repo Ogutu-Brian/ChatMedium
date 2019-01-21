@@ -1,12 +1,13 @@
 from user.user import User, UserCollection
+user_collection = UserCollection()
 
 
-"""login user"""
-def login_user(user)
+def login_user(email="", password=""):
     """ add login data"""
-
-    user_col= UserCollection()
-    user_col.add_user(user.email)
-
-
-
+    user = user_collection.query_by_field("email")
+    response = None
+    if not user:
+        response = "A user with that email does not exist"
+    elif user.password == password:
+        response = user
+    return response
