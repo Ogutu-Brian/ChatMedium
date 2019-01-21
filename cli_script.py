@@ -16,7 +16,7 @@ class Interface:
 
 @click.command()
 @click.option('--access', type=click.Choice(['1', '2']),
-              prompt="You are doing well. Choose a number from below\
+              prompt="\nYou are doing well. Choose a number from below\
               \n1. Register as new user\n2. Login")
 def give_access(access):
 
@@ -45,7 +45,17 @@ def display_logged_in_menu():
     print("\nChoose from Below\n")
     print("1. Add comment")
     print("2. Display comments")
-    print()
+
+    choose_comment_action()
+
+
+@click.command()
+@click.option("--your_choice", prompt=True, click.Choice(['1', '2']))
+def choose_comment_option(your_choice):
+    if your_choice == 1:
+        add_user_comment()
+    elif your_choice == 2:
+        display_all_comments()
 
 
 if __name__ == '__main__':
