@@ -1,4 +1,5 @@
 import click
+import os
 
 
 class Interface:
@@ -37,6 +38,14 @@ def register(email, password):
 @click.option('--password', prompt="Input password", hide_input=True)
 def login_user(email, password):
     click.echo("Logging you in")
+
+
+def display_logged_in_menu():
+    os.system('clear')
+    print("\nChoose from Below\n")
+    print("1. Add comment")
+    print("2. Display comments")
+    print()
 
 
 if __name__ == '__main__':
