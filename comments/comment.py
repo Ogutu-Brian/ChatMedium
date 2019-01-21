@@ -22,12 +22,12 @@ class Comment:
         Comment.COMMENTS.append(comment)
 
     @staticmethod
-    def find_comment_by_author(author):
-        '''Find a comment by author'''
+    def find_comment_by_id(comment_id):
+        '''Find a comment by its ID'''
         comments_list = Comment.COMMENTS
         comment = {}
         for index, _ in enumerate(comments_list):
-            if comments_list[index].get(author) == author:
+            if comments_list[index].get(comment_id) == comment_id:
                 comment = comments_list[index]
         return comment
 
