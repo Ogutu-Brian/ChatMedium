@@ -17,6 +17,17 @@ class User:
         self.id = ""
         self.full_name = self.first_name+" "+self.last_name
 
+    def to_dictionary(self):
+        """Rpresents the user data in dictionary"""
+        result = {
+            "firstName": self.first_name,
+            "lastName": self.last_name,
+            "password": self.password,
+            "email": self.email,
+            "role": self.role
+        }
+        return result
+
 
 class UserCollection:
     """A class for storing user data"""
@@ -31,7 +42,8 @@ class UserCollection:
         self.user_data[user.id] = user
         self.id += 1
 
-    def query_by_id(self, item_id):
+    @classmethod
+    def query_by_id(cls, item_id):
         """Queries a user by the user id"""
         response = None
         for item in self.user_data.values():
