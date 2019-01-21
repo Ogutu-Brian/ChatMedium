@@ -1,6 +1,8 @@
 import click
 import os
 
+from utils import verify_email
+
 
 class Interface:
 
@@ -30,6 +32,7 @@ def give_access(access):
 @click.option('--email', type=str, prompt=True)
 @click.password_option('--password')
 def register(email, password):
+    verify_email(email)
     click.echo('User registeration success')
 
 
@@ -37,6 +40,7 @@ def register(email, password):
 @click.option('--email', type=str, prompt=True)
 @click.option('--password', prompt="Input password", hide_input=True)
 def login_user(email, password):
+    verify_email(email)
     click.echo("Logging you in")
 
 
