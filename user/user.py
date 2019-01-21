@@ -20,8 +20,8 @@ class User:
     def to_dictionary(self):
         """Rpresents the user data in dictionary"""
         result = {
-            "firstName": self.first_name,
-            "lastName": self.last_name,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
             "password": self.password,
             "email": self.email,
             "role": self.role
@@ -54,6 +54,6 @@ class UserCollection:
         """Queries an item by field name"""
         response = None
         for item in self.user_data.values():
-            if item.to_dictionary(field) == value:
+            if item.to_dictionary()[field] == value:
                 response = item
         return response
