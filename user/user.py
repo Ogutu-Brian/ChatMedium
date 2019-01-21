@@ -49,3 +49,11 @@ class UserCollection:
             if item.id == item_id:
                 response = item
         return response
+
+    def query_by_field(self, field="", value=""):
+        """Queries an item by field name"""
+        response = None
+        for item in self.user_data.values():
+            if item.to_dictionary(field) == value:
+                response = item
+        return response
