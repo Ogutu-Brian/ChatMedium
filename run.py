@@ -13,4 +13,7 @@ def login_user(email="", password=""):
     return response
 
 def logout_user()
-    pass
+    
+    response = None
+
+    return response
