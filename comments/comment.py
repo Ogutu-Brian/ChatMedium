@@ -11,13 +11,13 @@ class Comment:
         self.message = message
         self.created_at = str(datetime.now())
 
-    def add_comment(self, comment):
-        '''Method to add a comment'''
+    def save(self, comment):
+        '''Save a comment to the comments list'''
         COMMENTS.append(comment)
 
     @staticmethod
     def find_comment_by_author(author):
-        '''Find a comment by id'''
+        '''Find a comment by author'''
         comment = {}
         for index, _ in enumerate(COMMENTS):
             if COMMENTS[index].get(author) == author:
