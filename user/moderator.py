@@ -7,6 +7,7 @@ class Moderator(User):
         self.comment = Comment()
     def edit_comment(self,comment_id,message):
         """ allow moderator to edit comment"""
+        self.edit = self.comment.edit_comment(comment_id,message)
         # comment = Commment().edit_comment(comment_id, message)
 
     def delete_comment(self):
