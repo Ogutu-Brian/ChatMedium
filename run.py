@@ -5,7 +5,7 @@ user_collection = UserCollection()
 
 def login_user(email="", password=""):
     """ add login data"""
-    user = user_collection.query_by_field("email",email)
+    user = user_collection.query_by_field("email", email)
     response = None
     if user:
         if user.password == password:
@@ -36,7 +36,7 @@ if __name__ == "__main__":
         print("1. Sign up")
         print("2. Log in")
         choice = input("Enter choice")
-        if not choice:
+        if not choice or int(choice) not in [1, 2]:
             print("You did not enter a valid choice")
             break
         if int(choice) == 1:
@@ -54,3 +54,7 @@ if __name__ == "__main__":
             user = login_user(email=email, password=password)
             if user:
                 print("You successfully logged in")
+            comment_choice = None
+            print("1. Enter comment")
+            print("2. Display all comments")
+            comment_choice = input("Plese enter choce from above options")
