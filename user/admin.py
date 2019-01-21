@@ -1,9 +1,9 @@
-from user.user import User
+
 from user.moderator import Moderator
 from comments.comment import Comment
 
 
-class Admin(Moderator,User):
+class Admin(Moderator):
     """contains the Admin functionalities"""
     def __init__(self):
         super().__init__()
