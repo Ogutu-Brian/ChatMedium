@@ -11,3 +11,6 @@ def login_user(email="", password=""):
     elif user.password == password:
         response = user
     return response
+
+def logout_user()
+    pass
