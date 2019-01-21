@@ -2,8 +2,11 @@ from user.user import User, UserCollection
 
 
 """login user"""
-def login_user(User)
+def login_user(user)
+    """ add login data"""
 
-    login_data =user.email
+    user_col= UserCollection()
+    user_col.add_user(user.email)
 
-    
+
+
