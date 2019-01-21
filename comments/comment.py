@@ -31,6 +31,12 @@ class Comment:
                 comment = comments_list[index]
         return comment
 
+    @staticmethod
+    def edit_comment(comment_id, message):
+        '''Edit a comment message'''
+        comment = Comment.find_comment_by_id(comment_id)
+        comment['message'] = message
+
     def comment_to_dict(self):
         '''Return a dictionary of the comments object'''
         return {
