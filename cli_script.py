@@ -18,7 +18,7 @@ class Interface:
 
 @click.command()
 @click.option('--access', type=click.Choice(['1', '2']),
-              prompt="\nYou are doing well. Choose a number from below\
+              prompt="\nChoose a number from below\
               \n1. Register as new user\n2. Login")
 def give_access(access):
 
@@ -30,9 +30,12 @@ def give_access(access):
 
 @click.command()
 @click.option('--email', type=str, prompt=True)
+@click.option('--firstName', type=str, prompt=True)
+@click.option('--LastName', type=str, prompt=True)
 @click.password_option('--password')
 def register(email, password):
-    verify_email(email)
+    click.echo("\nYou are doing well")
+    email = verify_email(email)
     click.echo('User registeration success')
 
 
@@ -40,7 +43,7 @@ def register(email, password):
 @click.option('--email', type=str, prompt=True)
 @click.option('--password', prompt="Input password", hide_input=True)
 def login_user(email, password):
-    verify_email(email)
+    email = verify_email(email)
     click.echo("Logging you in")
 
 
@@ -54,7 +57,7 @@ def display_logged_in_menu():
 
 
 @click.command()
-@click.option("--your_choice", prompt=True, click.Choice(['1', '2']))
+@click.option("--your_choice", prompt=True, type=click.Choice(['1', '2']))
 def choose_comment_option(your_choice):
     if your_choice == 1:
         add_user_comment()
